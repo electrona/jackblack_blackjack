@@ -40,11 +40,11 @@ def play_game(player_hand):
     again = True
     while again:
         card_value_calculation(player_hand)
-        handValue = player_hand[0]
-        if handValue > 21:
+        hand_value = player_hand[0]
+        if hand_value > 21:
             print("You Bust!")
             break
-        elif handValue == 21:
+        elif hand_value == 21:
             print("You win!")
             break
         choice = input("Would you like to Hit or Stand (h/s) ")
@@ -86,7 +86,7 @@ def print_hand(player_hand):
 
 
 def main():
-    player_hand = creating_player_hand()
+    player_hand = deck.creating_player_hand()
     play_game(player_hand)
 
 
