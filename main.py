@@ -9,24 +9,6 @@ import random as rnd
 # use .remove()/.pop() to remove cards from single deck
 # add ability to change A to 1 OR 11
 
-
-# dealing cards (player)
-def creating_player_hand():
-    suits = ["\u2660", "\u2665", "\u2666", "\u2663"]
-    card_numbers = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
-    hand_value = 0
-    number_of_cards = 0
-    player_hand = [hand_value]
-    for number_of_cards in range(2):
-        h = rnd.randrange(13)
-        card_number = str(card_numbers[h])
-        j = rnd.randrange(3)
-        suit = suits[j]
-        player_hand.append(card_number)
-        player_hand.append(suit)
-    return player_hand
-
-
 # takes face value and assigns a numerical value
 def card_value_calculation(player_hand):
     hand_value = 0
