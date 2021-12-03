@@ -1,4 +1,4 @@
-import deck
+import deck as d
 import betting
 import dealer
 
@@ -71,7 +71,7 @@ def hit(player_hand):
     player_hand.append(card_number)
     player_hand.append(suit)
     print()
-#comment
+
 
 # to stay with your current hand
 def stand():
@@ -86,8 +86,7 @@ def print_hand(player_hand):
 
 
 def main():
-    player_hand = deck.creating_player_hand()
-    play_game(player_hand)
+    deck = d.new_deck()
 
 
 if __name__ == "__main__":
