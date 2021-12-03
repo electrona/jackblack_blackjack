@@ -71,7 +71,7 @@ def hit(player_hand):
     player_hand.append(card_number)
     player_hand.append(suit)
     print()
-
+#comment
 
 # to stay with your current hand
 def stand():
