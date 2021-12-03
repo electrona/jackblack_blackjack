@@ -21,25 +21,3 @@ def new_deck():
     random.shuffle(deck)
     return deck
 
-
-# dealing cards (player)
-def creating_player_hand():
-    hand_value = 0
-    chip_stack = 0
-    player_hand = [hand_value, chip_stack]  # intializes the players hand with hand_value & chip_stack
-    for number_of_cards in range(2):
-        i = random.randrange(51)
-        card_number = str(deck_in_play[i])  # sometimes gets out of range error (i think its fixed now)
-        deck_in_play.remove(card_number)
-        player_hand.append(card_number)
-    print(len(deck_in_play))  # checks if cards have been removed from deck
-    print(player_hand)  # checks to see if player hand is initalized properly
-    return player_hand
-
-
-def main():
-    new_deck()
-
-
-if __name__ == "__main__":
-    main()
