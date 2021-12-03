@@ -9,24 +9,6 @@ import random as rnd
 # use .remove()/.pop() to remove cards from single deck
 # add ability to change A to 1 OR 11
 
-
-# dealing cards (player)
-def creating_player_hand():
-    suits = ["\u2660", "\u2665", "\u2666", "\u2663"]
-    card_numbers = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
-    hand_value = 0
-    number_of_cards = 0
-    player_hand = [hand_value]
-    for number_of_cards in range(2):
-        h = rnd.randrange(13)
-        card_number = str(card_numbers[h])
-        j = rnd.randrange(3)
-        suit = suits[j]
-        player_hand.append(card_number)
-        player_hand.append(suit)
-    return player_hand
-
-
 # takes face value and assigns a numerical value
 def card_value_calculation(player_hand):
     hand_value = 0
@@ -58,11 +40,11 @@ def play_game(player_hand):
     again = True
     while again:
         card_value_calculation(player_hand)
-        handValue = player_hand[0]
-        if handValue > 21:
+        hand_value = player_hand[0]
+        if hand_value > 21:
             print("You Bust!")
             break
-        elif handValue == 21:
+        elif hand_value == 21:
             print("You win!")
             break
         choice = input("Would you like to Hit or Stand (h/s) ")
@@ -104,7 +86,7 @@ def print_hand(player_hand):
 
 
 def main():
-    player_hand = creating_player_hand()
+    player_hand = deck.creating_player_hand()
     play_game(player_hand)
 
 
