@@ -19,9 +19,11 @@ def hit(player_hand):
     player_hand.append(suit)
     print()
 
-#alternative hit method
-def hit_alt(game_deck):
 
+# alternative hit method
+def hit_alt(game_deck, player_hand):
+    card_given = game_deck.pop()
+    player_hand.append(card_given)
 
 
 # to stay with your current hand
