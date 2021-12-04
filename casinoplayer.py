@@ -1,7 +1,7 @@
 # prints the players hand in organized manner
 def print_hand(player_hand):
     for i in range(1, len(player_hand), 2):
-        print("[" + player_hand[i] + player_hand[i + 1] + "]")
+        print(f"[{player_hand[i]}{player_hand[i + 1]}]")
     print()
 
 
@@ -22,8 +22,7 @@ def card_value_calculation(player_hand):
         else:
             card_value = card_number
         hand_value = hand_value + card_value
-    print("Your hand total is: " + str(hand_value))
-    print()
+    print(f"Your hand total is: {hand_value}\n")
     player_hand[0] = hand_value
     return player_hand
 
