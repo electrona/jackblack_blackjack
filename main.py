@@ -31,10 +31,8 @@ def stand():
     print("You are content with your current hand")
 
 
-# the game itself
-def play_game(player_hand):
-    print()
-    # betting function/module
+def main():
+    game_deck = deck.new_deck()
     print_hand(player_hand)
     again = True
     while again:
@@ -56,10 +54,6 @@ def play_game(player_hand):
             print("Invalid Selection. Please try again.")
         print_hand(player_hand)
     print()
-
-
-def main():
-    game_deck = deck.new_deck()
 
 
 if __name__ == "__main__":
