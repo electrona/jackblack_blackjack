@@ -1,4 +1,4 @@
-import deck as d
+import casinodeck as d
 import betting
 import dealer
 
