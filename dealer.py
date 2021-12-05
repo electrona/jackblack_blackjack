@@ -1,4 +1,6 @@
 import csv
+import casinodeck
+import betting
 
 FILENAME = "dealersNet.csv"
 
@@ -18,6 +20,10 @@ def read_dealerNET():
 def displayWinLoss():
     pass #may not need
 
+def shuffle_deck():
+    pass #import casinodeck with shuffle function
+    casinodeck.new_deck()
+
 
 def main():
     # display a welcome message
@@ -29,8 +35,9 @@ def main():
 
     choice = "y"
     while choice.lower() == "y":
-
-        net_plus_minus = (current_balance - hand_payout) #hand_payout would need to be imported
+        hand_payout = betting."futurefunction()" #hand_payout would need to be imported
+                            #-50          +     -100   = -150
+        net_plus_minus = (current_balance + hand_payout)
 
         print("Dealers Net +/-: " + str(net_plus_minus))
         print()
