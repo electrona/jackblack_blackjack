@@ -30,6 +30,8 @@ def main():
     print("This is the dealer")
     print()
 
+
+
     current_balance = read_dealerNET()
     #displayWinLoss() #may not need
 
