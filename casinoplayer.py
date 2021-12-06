@@ -1,8 +1,10 @@
 # prints the players hand in organized manner
 def print_hand(player_hand):
+    cards = ""
     for i in range(2, len(player_hand)):
-        print(f"[{player_hand[i]}][{player_hand[i + 1]}]")
-    print()
+        card = str("[" + player_hand[i] +"]")
+        cards = cards + card
+    print(cards)
 
 
 # takes face value and assigns a numerical value

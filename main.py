@@ -12,7 +12,7 @@ def hit(game_deck, player_hand):
 
 
 # to stay with your current hand
-def stand():
+def stand(player_hand):
     print("You are content with your current hand")
 
 def create_player_hand(game_deck, player_hand):
@@ -25,9 +25,9 @@ def main():
     create_player_hand(game_deck, player_hand)
     print(player_hand)
     player.card_value_calculation(player_hand)  # gets hand_value of hand
-    #player.print_hand(player_hand)              # prints hand in organized manner [card][card]
+    player.print_hand(player_hand)              # prints hand in organized manner [card][card]
 
-    #player.print_hand(player_hand)
+    player.print_hand(player_hand)
     again = True
     while again:
          player.card_value_calculation(player_hand)
@@ -45,13 +45,14 @@ def main():
          if choice.lower() == "h":
              hit(game_deck, player_hand)
              print("you hit")
+             player.print_hand(player_hand)
          elif choice.lower() == "s":
-             stand()
+             stand(player_hand)
              # show dealers hand
              break
          else:
              print("Invalid Selection. Please try again.")
-    #player.print_hand(player_hand)
+    player.print_hand(player_hand)
     print()
 
 
