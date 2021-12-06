@@ -20,16 +20,18 @@ def card_value_calculation(player_hand):
             card_value = 10
         elif card_number == "K":
             card_value = 10
-        elif card_number == 1:
+        elif card_number == "1":
             card_value = 10
         elif card_number == "A":
-            card_value = 11
+            card_value = 1
         else:
             card_value = card_number
         hand_value = hand_value + int(card_value)
     print(f"Your hand total is: {hand_value}\n")
     player_hand[0] = hand_value
-    return player_hand
+    return (player_hand, hand_value)
+
+
 
 
 def main():
