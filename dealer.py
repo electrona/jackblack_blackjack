@@ -41,7 +41,7 @@ def value_dealers_hand(hand):
         card_number = card_number[0]
         if card_number == "J":
             card_value = 10
-        elif card_number == 1:
+        elif card_number == "1":
             card_value = 10
         elif card_number == "Q":
             card_value = 10
