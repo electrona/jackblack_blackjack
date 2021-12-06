@@ -22,16 +22,15 @@ def displayWinLoss():
 
 
 def dealers_hand(deck):
-    hand = []
+    hand = [0, 0] #hand = [hand_value, chip_stack]
     for i in range(2):
-        cards = deck.pop(0)
-        cards = deck.pop(1)
-    hand.append(cards)
+        cards = deck.pop(i)
+        hand.append(cards)
     return hand
 
 def display_dealers_hand(hand):
     if len(hand) == 2:
-        print("Dealer has card &", hand[1])
+        print("Dealer has [??] &", hand[1])
 
 
 def value_dealers_hand(hand):
@@ -39,7 +38,10 @@ def value_dealers_hand(hand):
     card_value = 0
     for i in range(len(hand)):
         card_number = hand[i]
+        card_number = card_number[0]
         if card_number == "J":
+            card_value = 10
+        elif card_number == 1:
             card_value = 10
         elif card_number == "Q":
             card_value = 10
@@ -50,7 +52,7 @@ def value_dealers_hand(hand):
         else:
             card_value = card_number
         hand_total = hand_total + card_value
-    print("The dealer has a total of ", hand_total)
+    #print("The dealer has a total of ", hand_total)
     dealers_total_hand = hand_total
     return dealers_total_hand
 
@@ -80,24 +82,24 @@ def main():
     hand = dealers_hand(deck)
 
 
-dealers_hand(hand)
+    dealers_hand(hand)
 
-current_balance = read_dealerNET()
-#displayWinLoss() #may not need
+    current_balance = read_dealerNET()
+    #displayWinLoss() #may not need
 
-choice = "y"
-while choice.lower() == "y":
-    hand_payout = betting."futurefunction()" #hand_payout would need to be imported
-                        #-50    +     -100   = -150
-    net_plus_minus = (current_balance + hand_payout)
+    choice = "y"
+    while choice.lower() == "y":
+        hand_payout = betting."futurefunction()" #hand_payout would need to be imported
+                            #-50    +     -100   = -150
+        net_plus_minus = (current_balance + hand_payout)
 
-    print("Dealers Net +/-: " + str(net_plus_minus))
-    print()
+        print("Dealers Net +/-: " + str(net_plus_minus))
+        print()
 
-    money = []
-    money.append(net_plus_minus)
+        money = []
+        money.append(net_plus_minus)
 
-    choice = input("View balance again? (y/n):")
+        choice = input("View balance again? (y/n):")
 
 if __name__ == "__main__":
     main()
