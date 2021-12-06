@@ -2,7 +2,7 @@ import csv
 
 FILENAME = "dealersNet.csv"
 
-def write_dealersNet(money): #this might have to be in the player module, assigning win/loss to csv
+def write_dealersNet(money):  # this might have to be in the player module, assigning win/loss to csv
     with open(FILENAME, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerows(money)
@@ -42,3 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
