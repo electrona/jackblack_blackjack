@@ -1,6 +1,6 @@
 # prints the players hand in organized manner
 def print_hand(player_hand):
-    for i in range(2, len(player_hand), 2):
+    for i in range(2, len(player_hand)):
         print(f"[{player_hand[i]}][{player_hand[i + 1]}]")
     print()
 
