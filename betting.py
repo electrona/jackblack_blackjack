@@ -1,14 +1,31 @@
-def bettinginput():
-    print('')
+def displaymenu():
+    
+    print('                 WELCOME TO:                                ')
     print('    ╔══════════════════════════════════════════════════════╗')
     print('    ║  ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠        ║')
     print('    ╚══════════════════════════════════════════════════════╝')
+    print('')
+    print("                     COMMAND MENU")
+    print('')
+    print("Play - Play Black Jack")
+    print("Rules - Show Rules")
+    print("Exit - Exit program")
     
+    
+
+
+
+
+def bettinginput():
+    
+    print("")
     print("Plese enter the amount of money for your float")
     print("")
     floatamount = int (input("Enter your float amount: "))
-    print("")
-    print("Minumum bet amount is $5 to a maximum of $1000")
+    print("")  
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║   Minumum bet amount is $5 to a maximum of $1000     ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
     print("")
     betamount= int (input("Enter your bet amount: "))
     
@@ -17,20 +34,13 @@ def bettinginput():
     
     
     if betamount in range(5,1000) and betamount < floatamount and floatamount > 0:
+        print("")
         print("Your bet amount is: ", betamount)
         
     else:
         print("Please enter a valid bet")
         return
         
-        
-        
-        
-        
- 
-
-
-
 
 
 def rulesdisplay():
@@ -68,9 +78,20 @@ def main():
     
     
     
+    displaymenu()
     
-    bettinginput()
-    rulesdisplay()
+    while True:
+        command = input("\nCommand: ")
+        if command.lower() == "play":
+            bettinginput()
+        elif command.lower() == "rules":
+            rulesdisplay()
+        elif command.lower() == "exit":
+            break
+    print("Bye!")
+    
+   
+   # rulesdisplay()
 
 
 if __name__=="__main__":
