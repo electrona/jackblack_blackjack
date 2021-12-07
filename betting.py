@@ -1,11 +1,8 @@
-
-
-
 def displaymenu():
     
     print('                 WELCOME TO:                                ')
     print('    ╔══════════════════════════════════════════════════════╗')
-    print('    ║     ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠    ║')
+    print('    ║     ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠     ║')
     print('    ╚══════════════════════════════════════════════════════╝')
     print('')
     print(" COMMAND MENU")
@@ -18,15 +15,18 @@ def displaymenu():
 
 
 def player_float(i):
+
     
     print('     ╔══════════════════════════════════════════════════════╗')
     print('     ║   Please enter the amount of Float                   ║')
     print('     ╚══════════════════════════════════════════════════════╝')
+
     player_float_amount = int (input("Enter Player " + str(i + 1) + "'s float amount: "))
     print("")
     return player_float_amount
 """
 def playertwofloat():
+
     
     print('     ╔══════════════════════════════════════════════════════╗')
     print('     ║   Please enter the amount of Float                   ║')
@@ -35,7 +35,9 @@ def playertwofloat():
     print("")
     return playertwo_floatamount
 
+
 def playerthreefloat():
+
     
     print('     ╔══════════════════════════════════════════════════════╗')
     print('     ║   Please enter the amount of Float                   ║')
@@ -44,7 +46,9 @@ def playerthreefloat():
     print("")
     return playerthree_floatamount
 
+
 def playerfourfloat():
+
     
     print('     ╔══════════════════════════════════════════════════════╗')
     print('     ║   Please enter the amount of Float                   ║')
@@ -53,7 +57,9 @@ def playerfourfloat():
     print("")
     return playerfour_floatamount 
 
+
 def playerfivefloat():
+
     
     print('     ╔══════════════════════════════════════════════════════╗')
     print('     ║   Please enter the amount of Float                   ║')
@@ -90,6 +96,7 @@ def betting_player(player_float_amount, i):
     
 
 """  
+
     
     
 def bettingplayertwo():
@@ -169,8 +176,10 @@ def bettingplayerfive():
         return
         
 
+
 """
 def rules_display():
+
 
     print('')
     print('    ╔══════════════════════════════════════════════════════╗')
@@ -205,6 +214,8 @@ def main():
     """
     displaymenu()
     
+
+
     while True:
         command = input("\nCommand: ")
         if command.lower() == "play":
@@ -218,6 +229,7 @@ def main():
    
    # rulesdisplay()
    """
+
 
 
 
