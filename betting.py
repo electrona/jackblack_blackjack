@@ -72,23 +72,26 @@ def playerfivefloat():
 
 
 def betting_player(player_float_amount, i):
-
+    # add validation in the if statement
     print("")
-    print('    ╔══════════════════════════════════════════════════════╗')
-    print('    ║   Minimum bet amount is $5 to a maximum of $1000     ║')
-    print('    ╚══════════════════════════════════════════════════════╝')
+    print('╔══════════════════════════════════════════════════════╗')
+    print('║   Minimum bet amount is $5 to a maximum of $1000     ║')    # add chip balance within the block
+    print('╚══════════════════════════════════════════════════════╝')
     print("")
 
-    bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
-    float_remain = player_float_amount - bet_amount
-    if bet_amount in range(5, 1000) and bet_amount <= player_float_amount and player_float_amount > 0:
-        print("")
-        print("Your bet amount is: ", bet_amount)
-        print("You have " + str(float_remain) + " chips left")
-        return float_remain
-    else:
-        print("Please enter a valid bet")
-        print()
+    valid = True
+    while valid:
+        bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
+        float_remain = player_float_amount - bet_amount
+        if bet_amount in range(5, 1000) and bet_amount <= player_float_amount and player_float_amount > 0:
+            print("")
+            print("Your bet amount is: ", bet_amount)
+            print("You have " + str(float_remain) + " chips left")
+            return float_remain
+        else:
+            print("Please enter a valid bet")
+            print()
+            valid = True
 
 
 
