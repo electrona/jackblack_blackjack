@@ -26,7 +26,7 @@ def card_value_calculation(player_hand):
             card_value = 1
         else:
             card_value = card_number
-        hand_value = hand_value + int(card_value)
+        hand_value = hand_value + int(card_value)         # add Ace evaluation
     print(f"Your hand total is: {hand_value}\n")
     player_hand[0] = hand_value
     return (player_hand, hand_value)
