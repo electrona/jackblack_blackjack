@@ -1,6 +1,6 @@
 import casinodeck as deck
 import casinoplayer as player
-#import betting
+import betting as bet
 #import dealer
 import random as rnd
 
@@ -38,7 +38,8 @@ def main():
     game_deck = deck.new_deck()
     number_of_players = int(input("How many Players: "))      # validation between 1 & 5
     for i in range(0, number_of_players):
-        chip_stacks = int(input("Whats Player " + str(i + 1) + "'s starting chip stack: "))   # validation between 100 & 10000
+        chip_stacks = bet.player_float(i)
+        # chip_stacks = int(input("Whats Player " + str(i + 1) + "'s starting chip stack: "))   # validation between 100 & 10000
         player_chip_stacks.append(chip_stacks)
     print(player_chip_stacks)                         ### test
 
@@ -68,12 +69,10 @@ def main():
                     print("show dealer hand function")
                     #else print tie
                     break
-                print("You have " + str(player_chip_stacks[i]) + " chips")        # bet module
-                bet_amount = int(input("How much would you like to bet: "))       # bet module # validation to not exceed current chip stack
-                print("You bet " + str(bet_amount))                               # bet module
-                player_chip_stacks[i] = player_chip_stacks[i] - bet_amount        # bet module
-                print("You have " + str(player_chip_stacks[i]) + " chips left.")  # bet module
-                print()                                                           # bet module
+                player_float_amount = player_chip_stacks[i]
+                player_chip_stacks[i] = bet.betting_player(player_float_amount, i)
+                print(player_chip_stacks[i])
+
                 choice = input("Would you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
                     hit(game_deck, player_hand)
