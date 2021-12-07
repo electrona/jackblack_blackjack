@@ -7,6 +7,7 @@ import random as rnd
 # need to add:
 # validation
 # ace evaluation
+# compare player vs dealer
 
 
 
@@ -53,6 +54,11 @@ def main():
             print()
             player_hand = [0, 0]
             create_player_hand(game_deck, player_hand)
+
+            player_float_amount = player_chip_stacks[i]
+            player_chip_stacks[i] = bet.betting_player(player_float_amount, i)
+            print()
+
             player.print_hand(player_hand)
             again = True
             while again:
@@ -69,9 +75,9 @@ def main():
                     print("show dealer hand function")
                     #else print tie
                     break
-                player_float_amount = player_chip_stacks[i]
-                player_chip_stacks[i] = bet.betting_player(player_float_amount, i)
-                print(player_chip_stacks[i])
+                #player_float_amount = player_chip_stacks[i]
+                #player_chip_stacks[i] = bet.betting_player(player_float_amount, i)
+                #print(player_chip_stacks[i])
 
                 choice = input("Would you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
