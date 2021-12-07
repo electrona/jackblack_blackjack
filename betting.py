@@ -2,10 +2,10 @@ def displaymenu():
     
     print('                 WELCOME TO:                                ')
     print('    ╔══════════════════════════════════════════════════════╗')
-    print('    ║  ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠        ║')
+    print('    ║     ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠     ║')
     print('    ╚══════════════════════════════════════════════════════╝')
     print('')
-    print("                     COMMAND MENU")
+    print(" COMMAND MENU")
     print('')
     print("Play - Play Black Jack")
     print("Rules - Show Rules")
@@ -18,9 +18,9 @@ def displaymenu():
 
 def bettinginput():
     
-    print("")
-    print("Plese enter the amount of money for your float")
-    print("")
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║   Please enter the amount of Float                   ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
     floatamount = int (input("Enter your float amount: "))
     print("")  
     print('    ╔══════════════════════════════════════════════════════╗')
@@ -75,8 +75,6 @@ def rulesdisplay():
 
 
 def main():
-    
-    
     
     displaymenu()
     
