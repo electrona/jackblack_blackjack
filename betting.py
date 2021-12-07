@@ -14,26 +14,143 @@ def displaymenu():
     
 
 
-
-
-def bettinginput():
+def playeronefloat:
     
-    print('    ╔══════════════════════════════════════════════════════╗')
-    print('    ║   Please enter the amount of Float                   ║')
-    print('    ╚══════════════════════════════════════════════════════╝')
-    floatamount = int (input("Enter your float amount: "))
+    print('     ╔══════════════════════════════════════════════════════╗')
+    print('     ║   Please enter the amount of Float                   ║')
+    print('     ╚══════════════════════════════════════════════════════╝')
+    playerone_floatamount = int (input("Enter your float amount: "))
+    print("")
+    return playerone_floatamount
+
+def playertwofloat:
+    
+    print('     ╔══════════════════════════════════════════════════════╗')
+    print('     ║   Please enter the amount of Float                   ║')
+    print('     ╚══════════════════════════════════════════════════════╝')
+    playertwo_floatamount = int (input("Enter your float amount: "))
+    print("")
+    return playertwo_floatamount
+
+def playerthreefloat:
+    
+    print('     ╔══════════════════════════════════════════════════════╗')
+    print('     ║   Please enter the amount of Float                   ║')
+    print('     ╚══════════════════════════════════════════════════════╝')
+    playerthree_floatamount = int (input("Enter your float amount: "))
+    print("")
+    return playerthree_floatamount
+
+def playerfourfloat:
+    
+    print('     ╔══════════════════════════════════════════════════════╗')
+    print('     ║   Please enter the amount of Float                   ║')
+    print('     ╚══════════════════════════════════════════════════════╝')
+    playerfour_floatamount = int (input("Enter your float amount: "))
+    print("")
+    return playerfour_floatamount 
+
+def playerfivefloat:
+    
+    print('     ╔══════════════════════════════════════════════════════╗')
+    print('     ║   Please enter the amount of Float                   ║')
+    print('     ╚══════════════════════════════════════════════════════╝')
+    playerfive_floatamount = int (input("Enter your float amount: "))
+    print("")
+    return playerfive_floatamount
+
+def bettingplayerone():
+    
     print("")  
     print('    ╔══════════════════════════════════════════════════════╗')
     print('    ║   Minumum bet amount is $5 to a maximum of $1000     ║')
     print('    ╚══════════════════════════════════════════════════════╝')
     print("")
     betamount= int (input("Enter your bet amount: "))
-    
-    floatremain = betamount - floatamount
-    
-    
+
+    floatremain = betamount - playerone_floatamount
     
     if betamount in range(5,1000) and betamount < floatamount and floatamount > 0:
+        print("")
+        print("Your bet amount is: ", betamount)
+        
+    else:
+        print("Please enter a valid bet")
+        return
+    
+
+    
+    
+    
+def bettingplayertwo():
+    
+    print("")  
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║   Minumum bet amount is $5 to a maximum of $1000     ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
+    print("")
+    betamount= int (input("Enter your bet amount: "))
+
+    floatremain = betamount - playertwo_floatamount
+    
+    if betamount in range(5,1000) and betamount < floatremain and floatremain > 0:
+        print("")
+        print("Your bet amount is: ", betamount)
+        
+    else:
+        print("Please enter a valid bet")
+        return
+    
+def bettingplayerthree():
+    
+    print("")  
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║   Minumum bet amount is $5 to a maximum of $1000     ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
+    print("")
+    betamount= int (input("Enter your bet amount: "))
+
+    floatremain = betamount - playerthree_floatamount
+    
+    if betamount in range(5,1000) and betamount < floatremain and floatremain > 0:
+        print("")
+        print("Your bet amount is: ", betamount)
+        
+    else:
+        print("Please enter a valid bet")
+        return
+    
+def bettingplayerfour():
+    
+    print("")  
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║   Minumum bet amount is $5 to a maximum of $1000     ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
+    print("")
+    betamount= int (input("Enter your bet amount: "))
+
+    floatremain = betamount - playerfour_floatamount
+    
+    if betamount in range(5,1000) and betamount < floatremain and floatremain > 0:
+        print("")
+        print("Your bet amount is: ", betamount)
+        
+    else:
+        print("Please enter a valid bet")
+        return
+    
+def bettingplayerfive():
+    
+    print("")  
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║   Minumum bet amount is $5 to a maximum of $1000     ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
+    print("")
+    betamount= int (input("Enter your bet amount: "))
+
+    floatremain = betamount - playerfive_floatamount
+    
+    if betamount in range(5,1000) and betamount < floatremain and floatremain > 0:
         print("")
         print("Your bet amount is: ", betamount)
         
