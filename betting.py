@@ -1,3 +1,38 @@
+def bettinginput():
+    print('')
+    print('    ╔══════════════════════════════════════════════════════╗')
+    print('    ║  ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠        ║')
+    print('    ╚══════════════════════════════════════════════════════╝')
+    
+    print("Plese enter the amount of money for your float")
+    print("")
+    floatamount = int (input("Enter your float amount: "))
+    print("")
+    print("Minumum bet amount is $5 to a maximum of $1000")
+    print("")
+    betamount= int (input("Enter your bet amount: "))
+    
+    floatremain = betamount - floatamount
+    
+    
+    
+    if betamount in range(5,1000) and betamount < floatamount and floatamount > 0:
+        print("Your bet amount is: ", betamount)
+        
+    else:
+        print("Please enter a valid bet")
+        return
+        
+        
+        
+        
+        
+ 
+
+
+
+
+
 def rulesdisplay():
 
     print('')
@@ -31,6 +66,10 @@ def rulesdisplay():
 
 def main():
     
+    
+    
+    
+    bettinginput()
     rulesdisplay()
 
 
