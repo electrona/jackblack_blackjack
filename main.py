@@ -1,7 +1,7 @@
 import casinodeck as deck
 import casinoplayer as player
 import betting as bet
-#import dealer
+import dealer
 import random as rnd
 
 # need to add:
@@ -81,8 +81,9 @@ def main():
                     player.print_hand(player_hand)
                 elif choice.lower() == "s":
                     stand(player_hand)
-                    print("show dealer hand function")           # show dealers hand
-                    print("The dealer has: dealer_hand_value")   # show dealers hand value
+                    print(dealer.dealers_hand(game_deck))
+                    dealer_hand = dealer.dealers_hand(game_deck)   # show dealers hand
+                    print(dealer_hand)  # show dealers hand value
                     break
                 else:
                     print("Invalid Selection. Please try again.")
