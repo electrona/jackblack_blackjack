@@ -1,12 +1,13 @@
 import casinodeck as deck
 import casinoplayer as player
-#import betting
+import betting
 #import dealer
 import random as rnd
 
 
+
 # alternative hit method
-from jackblack_blackjack import casinoplayer
+#from jackblack_blackjack import casinoplayer
 
 
 def hit(game_deck, player_hand):
@@ -26,7 +27,42 @@ def create_player_hand(game_deck, player_hand):
     hit(game_deck, player_hand)
     hit(game_deck, player_hand)
 
+def start_game():
+    command = int(input("How many players are playing today? (1-5)"))
+
+    if command < 1 or command > 5:
+        print("Please enter valid number of players")
+
+
+
+
+
+
+
+
+def display_menu ():
+    print("Welcome to Jack Black's Black Jack!\n")
+    print("Please select one of the following options\n")
+    print("1. Start Game")
+    print("2. See Rules List")
+
+
+
+
+
 def main():
+    display_menu()
+
+    while True:
+        command = input("Enter 'start' or 'rules': ")
+        if command.lower() == "start":
+            start_game()
+        elif command.lower() == "rules":
+            betting.rulesdisplay()
+
+
+
+
 
     player_hand = [0, 0]                        # player_hand = [hand_value, chip_stack]
     game_deck = deck.new_deck()
@@ -66,4 +102,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-#fuck this shit
