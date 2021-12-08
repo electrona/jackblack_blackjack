@@ -55,6 +55,9 @@ def main():
     #player.print_hand(player_hand) #this removed the extra hand from printing
     play_again = "y"
     while play_again.lower() == "y":
+        dealer_hand = dealer.dealers_hand(game_deck)  # show dealers hand
+        dealer_shown_card = dealer_hand[1]
+
         for j in range(0, number_of_players):
             player_float_amount = player_chip_stacks[j]
             player_chip_stacks[j] = bet.betting_player(player_float_amount, j)
@@ -66,7 +69,7 @@ def main():
             player_hand = [0, 0]
             create_player_hand(game_deck, player_hand)
             player.print_hand(player_hand)
-            dealer_hand = dealer.dealers_hand(game_deck)  # show dealers hand
+            print("Dealer is showing " + dealer_shown_card)
             again = True
             while again:
                 player.card_value_calculation(player_hand)
@@ -75,15 +78,7 @@ def main():
                 if hand_value > 21:
                     print("You Bust!")
                     break
-                elif hand_value == 21:
-                    #check to see if dealer == 21
-                    #if not print
-                    print("You win!")
-                    dealer.value_dealers_hand(dealer_hand)
-                    print(dealer_hand[i])  # show dealers hand value
-                    # print("show dealer hand function")
-                    #else print tie
-                    break
+
                 #player_float_amount = player_chip_stacks[i]
                 #player_chip_stacks[i] = bet.betting_player(player_float_amount, i)
                 #print(player_chip_stacks[i])
@@ -96,14 +91,28 @@ def main():
                     player.print_hand(player_hand)
                 elif choice.lower() == "s":
                     stand(player_hand)
-                    print(dealer.dealers_hand(game_deck))
-                    dealer_hand = dealer.dealers_hand(game_deck)   # show dealers hand
-                    print(dealer_hand)  # show dealers hand value
+                    #print(dealer.dealers_hand(game_deck))
+                    #dealer_hand = dealer.dealers_hand(game_deck)   # show dealers hand
+                    #print(dealer_hand)  # show dealers hand value
                     break
                 else:
                     print("Invalid Selection. Please try again.")
             # player.print_hand(player_hand)
             print()
+            print(dealer_hand)
+            for p in range(0, number_of_players):
+                if dealer_hand == hand_value[p]:
+                    print("Push!")
+                    player_chip_stacks[p] += bet_amount    #player retains original float
+
+                if dealer_hand > hand_value[p]:
+                    print("Dealer wins :(")
+                    money += bet.bet_amount[p]  # this adds to dealersNet csv
+
+                if dealer_hand < hand_value[p]:
+                    print("Player wins!")
+                    player_chip_stacks[p] += (2 * bet.bet_amount[p])  # adds what player bet and their winnings to chip_stacks
+                    money -= (2 * bet.bet_amount[p])
         play_again = input("would you like to play again? (y/n) ")
 
 
