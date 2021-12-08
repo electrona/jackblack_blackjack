@@ -25,6 +25,30 @@ def dealers_hand(game_deck):
     for i in range(2):
         cards = game_deck.pop()
         hand.append(cards)
+        hand_total = 0
+        card_value = 0
+    for i in range(1, len(hand)):
+        card_number = hand[i]
+        card_number = card_number[0]
+        if card_number == "J":
+            card_value = 10
+        elif card_number == "1":
+            card_value = 10
+        elif card_number == "Q":
+            card_value = 10
+        elif card_number == "K":
+            card_value = 10
+        elif card_number == "A":
+            card_value = 11
+        else:
+            card_value = card_number
+        hand_total = hand_total + int(card_value)
+    #print(f"The dealer has a total of  {hand_total}."
+    hand[0] = hand_total
+
+
+
+
     return hand
 
 
