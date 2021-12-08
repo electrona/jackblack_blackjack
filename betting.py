@@ -36,7 +36,7 @@ def betting_player(player_float_amount, j):
 
     valid = True
     while valid:
-        bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
+        bet_amount = int(input("Enter Player " + str(j + 1) + "'s bet amount: "))
         float_remain = player_float_amount - bet_amount
         if bet_amount in range(5, 1000) and bet_amount <= player_float_amount and player_float_amount > 0:
             print("")
