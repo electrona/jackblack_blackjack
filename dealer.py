@@ -1,6 +1,5 @@
 import csv
 import casinodeck as casino
-# import betting
 
 FILENAME = "dealersNet.csv"
 
@@ -28,14 +27,7 @@ def dealers_hand(game_deck):
         hand.append(cards)
     return hand
 
-# card_given = game_deck.pop()
-#     player_hand.append(card_given)
 
-# def display_dealers_hand(hand):
-#     if len(hand) == 2:
-#         print("Dealer has [??] &", hand[1])
-#
-#
 def value_dealers_hand(dealer_hand):
     hand_total = 0
     card_value = 0
@@ -74,37 +66,5 @@ def value_dealers_hand(dealer_hand):
 #     #else:
 #          #break
 
-def main():
-    pass
-    # display a welcome message
-    # print("This is the dealer")
-    # print()
-    #
-    #
-    # dealers_hand(game_deck)
-    # hand = dealers_hand(deck)
-    # value_dealers_hand(hand)
-    # print(hand)
-    #
-    # dealers_hand(hand)
 
-    # current_balance = read_dealerNET()
-    # #displayWinLoss() #may not need
-    #
-    # choice = "y"
-    # while choice.lower() == "y":
-    #     hand_payout = betting."futurefunction()" #hand_payout would need to be imported
-    #                         #-50    +     -100   = -150
-    #     net_plus_minus = (current_balance + hand_payout)
-    #
-    #     print("Dealers Net +/-: " + str(net_plus_minus))
-    #     print()
-    #
-    #     money = []
-    #     money.append(net_plus_minus)
-    #
-    #     choice = input("View balance again? (y/n):")
-
-if __name__ == "__main__":
-    main()
 
