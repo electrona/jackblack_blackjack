@@ -31,12 +31,3 @@ def card_value_calculation(player_hand):
     player_hand[0] = hand_value
     return (player_hand, hand_value)
 
-
-
-
-def main():
-    pass
-
-
-if __name__ == "__main__":
-    main()
