@@ -49,12 +49,14 @@ def value_dealers_hand(dealer_hand):
         hand_total = hand_total + int(card_value)
     print(f"The dealer has a total of  {hand_total}.")
     dealer_hand[0] = hand_total
-#
-# def dealer_plays_hand():
+
+
+# def dealer_plays_hand(dealer_hand):
 #     pass
-# #bring in hand total
-# #if loop: total <=16 hit
-#     #if hit, draw card, add total
+# # #bring in hand total
+#     if dealer_hand <=16:  #hit
+
+#  #if hit, draw card, add total
 #     #elif total >=17
 #         #hand = total
 #     #else:
