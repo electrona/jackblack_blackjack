@@ -72,7 +72,7 @@ def main():
                     print("You Bust!")
                     break
 
-                print("Dealer is showing " + dealer_shown_card)
+                print("Dealer is showing [??] " + dealer_shown_card)
                 choice = input("Would you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
                     hit(game_deck, player_hand)
