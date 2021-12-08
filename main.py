@@ -66,6 +66,7 @@ def main():
             player_hand = [0, 0]
             create_player_hand(game_deck, player_hand)
             player.print_hand(player_hand)
+            dealer_hand = dealer.dealers_hand(game_deck)  # show dealers hand
             again = True
             while again:
                 player.card_value_calculation(player_hand)
@@ -78,7 +79,9 @@ def main():
                     #check to see if dealer == 21
                     #if not print
                     print("You win!")
-                    print("show dealer hand function")
+                    dealer.value_dealers_hand(dealer_hand)
+                    print(dealer_hand[i])  # show dealers hand value
+                    # print("show dealer hand function")
                     #else print tie
                     break
                 #player_float_amount = player_chip_stacks[i]
