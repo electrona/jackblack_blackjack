@@ -42,13 +42,30 @@ def betting_player(player_float_amount, j):
             print("")
             print("Your bet amount is: ", bet_amount)
             print("You have " + str(float_remain) + " chips left")
-            return float_remain
+            return bet_amount  # float_remain
         else:
             print("Please enter a valid bet")
             print()
             valid = True
 
+###########################
 
+def hand_comparison(dealer_hand_value, player_hand_value, bet_made, player_chip_stacks):
+    if dealer_hand_value == player_hand_value:
+        print("Push!")
+        player_chip_stacks += bet_made  # player retains original float
+
+    if dealer_hand_value > player_hand_value:
+        print("Dealer wins :(")
+        #money += bet_made  # this adds to dealersNet csv
+
+    if dealer_hand_value < player_hand_value:
+        player_chip_stacks = (2 * bet_made)  # adds what player bet and their winnings to chip_stacks
+        print("Player wins " + str(player_chip_stacks) + "!")
+        return player_chip_stacks
+        #money -= (2 * bet_made)
+
+################################
 
 
 def rules_display():
