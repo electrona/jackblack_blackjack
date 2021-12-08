@@ -49,16 +49,15 @@ def main():
     play_again = "y"
     while play_again.lower() == "y":
         for i in range(0, number_of_players):
+            for j in range(0, number_of_players):
+                player_float_amount = player_chip_stacks[j]
+                player_chip_stacks[j] = bet.betting_player(player_float_amount, j)
+                print()
             print("===============================")
             print("Player " + str(i+1) + "'s Turn")
             print()
             player_hand = [0, 0]
             create_player_hand(game_deck, player_hand)
-
-            player_float_amount = player_chip_stacks[i]
-            player_chip_stacks[i] = bet.betting_player(player_float_amount, i)
-            print()
-
             player.print_hand(player_hand)
             again = True
             while again:
