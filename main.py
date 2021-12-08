@@ -48,11 +48,11 @@ def main():
     #player.print_hand(player_hand) #this removed the extra hand from printing
     play_again = "y"
     while play_again.lower() == "y":
+        for j in range(0, number_of_players):
+            player_float_amount = player_chip_stacks[j]
+            player_chip_stacks[j] = bet.betting_player(player_float_amount, j)
+            print()
         for i in range(0, number_of_players):
-            for j in range(0, number_of_players):
-                player_float_amount = player_chip_stacks[j]
-                player_chip_stacks[j] = bet.betting_player(player_float_amount, j)
-                print()
             print("===============================")
             print("Player " + str(i+1) + "'s Turn")
             print()
