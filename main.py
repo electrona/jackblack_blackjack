@@ -26,6 +26,7 @@ def main():
     game_deck = deck.new_deck()
     player_float_amount = []
 
+
     while True:
         number_of_players = int(input("How many Players (1-5): "))  # validation between 1 & 5
         if number_of_players in range(1, 6):
@@ -43,7 +44,8 @@ def main():
     while play_again.lower() == "y":
         bet_amount = []
         dealer_hand = dealer.dealers_hand(game_deck)               # not consistent
-        dealer_shown_card = dealer_hand[1]                         # stays consistent no matter the dealer hand
+        dealer_shown_card = dealer_hand[2]   # stays consistent no matter the dealer hand
+        hand_total = 0
 
         # round of betting before hands are dealt
         for j in range(0, number_of_players):
@@ -72,17 +74,20 @@ def main():
                     print("You Bust!")
                     break
 
+
                 print("Dealer is showing " + dealer_shown_card)
+                print("Dealer is showing [??] " + "[" + dealer_shown_card + "]")
                 choice = input("Would you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
                     hit(game_deck, player_hand)
                     print("you hit")
                     print()
+                    print(player_hand)
                     # player.print_hand(player_hand)  #test
-                    print("Dealer is showing " + dealer_shown_card)  # make into dealer.function()
+                    print("Dealer is showing [??] " + "[" + dealer_shown_card + "]")  # make into dealer.function()
                 elif choice.lower() == "s":
                     stand(player_hand)
-                    dealer_hand = dealer.dealers_hand(game_deck)  # show dealers hand  ## changes every hand
+                    print(dealer_hand)  # show dealers hand  ## changes every hand
                     # print(dealer_hand[0])  # show dealers hand value  #test
                     print("player " + str(i + 1))
                     # print(bet_amount)                                 #test
