@@ -13,7 +13,7 @@ def hit(game_deck, player_hand):
 # to stay with your current hand
 def stand(player_hand):
     print()
-    print("You are content with your current hand")
+    print("\nYou are content with your current hand")
 
 
 def create_player_hand(game_deck, player_hand):
@@ -73,16 +73,17 @@ def main():
                     break
 
                 print("Dealer is showing [??] " + dealer_shown_card)
-                choice = input("Would you like to Hit or Stand (h/s) ")
+                choice = input("\nWould you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
                     hit(game_deck, player_hand)
                     print("you hit")
                     print()
-                    # player.print_hand(player_hand)  #test
-                    print("Dealer is showing " + dealer_shown_card)  # make into dealer.function()
+                    player.print_hand(player_hand)  #test
+                    #print("Dealer is showing " + dealer_shown_card)  # make into dealer.function()
                 elif choice.lower() == "s":
                     stand(player_hand)
-                    dealer_hand = dealer.dealers_hand(game_deck)  # show dealers hand  ## changes every hand
+                    print(dealer_hand)
+                    print("The dealer has a total of " + str(dealer_hand[0]))      # show dealers hand  ## changes every hand
                     # print(dealer_hand[0])  # show dealers hand value  #test
                     print("player " + str(i + 1))
                     # print(bet_amount)                                 #test
@@ -103,9 +104,9 @@ def main():
                     break
                 else:
                     print("Invalid Selection. Please try again.")
-            player.print_hand(player_hand)
-            print()
-            print(dealer_hand)
+            #player.print_hand(player_hand)
+           # print()
+            #print(dealer_hand)
             game_deck = deck.new_deck()
 
         play_again = input("would you like to play again? (y/n) ")
