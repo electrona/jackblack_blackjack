@@ -1,7 +1,7 @@
 import casinodeck as deck
 import casinoplayer as player
 import betting as bet
-#import dealer
+import dealer
 import random as rnd
 
 # need to add:
@@ -37,7 +37,14 @@ def main():
     player_chip_stacks = []
     #player_hand = [0, 0]      # player_hand = [hand_value, chip_stack] # check range function that start @2 if needed
     game_deck = deck.new_deck()
-    number_of_players = int(input("How many Players: "))      # validation between 1 & 5
+
+    while True:
+        number_of_players = int(input("How many Players (1-5): "))      # validation between 1 & 5
+        if number_of_players in range(1,6):
+            break
+        else:
+            print("The maximum number of players is 5. Please try again.")
+
     for i in range(0, number_of_players):
         chip_stacks = bet.player_float(i)
         # chip_stacks = int(input("Whats Player " + str(i + 1) + "'s starting chip stack: "))   # validation between 100 & 10000
@@ -86,8 +93,9 @@ def main():
                     player.print_hand(player_hand)
                 elif choice.lower() == "s":
                     stand(player_hand)
-                    print("show dealer hand function")           # show dealers hand
-                    print("The dealer has: dealer_hand_value")   # show dealers hand value
+                    print(dealer.dealers_hand(game_deck))
+                    dealer_hand = dealer.dealers_hand(game_deck)   # show dealers hand
+                    print(dealer_hand)  # show dealers hand value
                     break
                 else:
                     print("Invalid Selection. Please try again.")
