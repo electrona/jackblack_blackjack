@@ -26,7 +26,7 @@ def dealers_hand(game_deck):
     for i in range(2):
         cards = game_deck.pop()
         hand.append(cards)
-    #return hand
+    return hand
 
 # card_given = game_deck.pop()
 #     player_hand.append(card_given)
