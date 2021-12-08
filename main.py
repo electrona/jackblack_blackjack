@@ -106,6 +106,7 @@ def main():
             player.print_hand(player_hand)
             print()
             print(dealer_hand)
+            game_deck = deck.new_deck()
 
         play_again = input("would you like to play again? (y/n) ")
 
