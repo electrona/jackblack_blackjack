@@ -36,11 +36,11 @@ def dealers_hand(game_deck):
 #         print("Dealer has [??] &", hand[1])
 #
 #
-def value_dealers_hand(hand):
+def value_dealers_hand(dealer_hand):
     hand_total = 0
     card_value = 0
-    for i in range(1, len(hand)):
-        card_number = hand[i]
+    for i in range(1, len(dealer_hand)):
+        card_number = dealer_hand[i]
         card_number = card_number[0]
         if card_number == "J":
             card_value = 10
@@ -56,8 +56,7 @@ def value_dealers_hand(hand):
             card_value = card_number
         hand_total = hand_total + int(card_value)
     print(f"The dealer has a total of  {hand_total}.")
-    hand[0] = hand_total
-    return hand
+    dealer_hand[0] = hand_total
 #
 # def dealer_plays_hand():
 #     pass
