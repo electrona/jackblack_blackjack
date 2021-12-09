@@ -1,5 +1,6 @@
 import csv
 import casinodeck as casino
+import main
 
 FILENAME = "dealersNet.csv"
 
@@ -73,13 +74,19 @@ def value_dealers_hand(dealer_hand):
     print(f"The dealer has a total of  {hand_total}.")
     dealer_hand[0] = hand_total
 
+def dealer_hit(hand):
+    game_deck = main.game_deck()
+    card_given = game_deck.pop()
+    hand.append(card_given)
 
-def dealer_plays_hand(value):
+def dealer_plays_hand(value, hand):
     while True:
         if value <= 16:
             # player.hit(game_deck)      # will need to add card value calc to this
             print("dealer hits")
-            value += 5
+            dealer_hit(hand)
+            print(hand)
+
         else:
             break
     return value
