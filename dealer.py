@@ -25,8 +25,8 @@ def dealers_hand(game_deck):
     for i in range(2):
         cards = game_deck.pop()
         hand.append(cards)
-        hand_total = 0
-        card_value = 0
+    hand_value = 0
+    ace_counter = 0
     for i in range(1, len(hand)):
         card_number = hand[i]
         card_number = card_number[0]
@@ -40,15 +40,14 @@ def dealers_hand(game_deck):
             card_value = 10
         elif card_number == "A":
             card_value = 11
+            ace_counter += 1
         else:
             card_value = card_number
-        hand_total = hand_total + int(card_value)
-    #print(f"The dealer has a total of  {hand_total}."
-    hand[0] = hand_total
-
-
-
-
+        hand_value = hand_value + int(card_value)
+        if hand_value > 21 and ace_counter > 0:
+            hand_value = hand_value - (ace_counter * 10)
+    # print(f"The dealer has a total of  {hand_value}.")
+    hand[0] = hand_value
     return hand
 
 
@@ -75,10 +74,17 @@ def value_dealers_hand(dealer_hand):
     dealer_hand[0] = hand_total
 
 
-# def dealer_plays_hand(dealer_hand):
-#     pass
+def dealer_plays_hand(value):
+    while True:
+        if value <= 16:
+            # player.hit(game_deck)      # will need to add card value calc to this
+            print("dealer hits")
+            value += 5
+        else:
+            break
+    return value
 # # #bring in hand total
-#     if dealer_hand <=16:  #hit
+#
 
 #  #if hit, draw card, add total
 #     #elif total >=17
