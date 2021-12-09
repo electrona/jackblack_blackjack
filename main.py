@@ -10,8 +10,7 @@ import random as rnd
 
 # to stay with your current hand
 def stand():
-    print()
-    print("\nYou are content with your current hand")
+    print("\nYou are content with your current hand\n")
 
 
 def create_player_hand(game_deck, player_hand):
@@ -43,6 +42,7 @@ def main():
         dealer_hand = dealer.dealers_hand(game_deck)               # not consistent
         dealer_shown_card = dealer_hand[1]                         # stays consistent no matter the dealer hand
 
+
         # round of betting before hands are dealt
         for j in range(0, number_of_players):
             player_float_amount = player_chip_stacks[j]
@@ -62,16 +62,16 @@ def main():
             create_player_hand(game_deck, player_hand)
             player.print_hand(player_hand)
             # print("Dealer is showing " + dealer_shown_card)
-            if dealer_hand[0] == 21:              #### this function works do not remove
+            if dealer_hand[0] == 21 and len(dealer_hand) == 3:
                 print("Dealer has blackjack")
-                for g in range(2, number_of_players):
+                '''for g in range(2, number_of_players):
                     player_hand[g] = player.card_value_calculation(player_hand)
                     if player_hand[g] == 21:
                         print("player " + str(g+1) + " also has blackjack")
                         # player ties with dealer, gets money back
                     else:
                         print("player " + str(g+1) + " loses")
-                        # player loses bet
+                        # player loses bet'''
             while True:
                 player.card_value_calculation(player_hand)
                 hand_value = player_hand[0]
@@ -80,6 +80,7 @@ def main():
                     break
                 elif hand_value == 21:
                     stand()
+                    break
                 print("Dealer is showing [??] " + dealer_shown_card)
                 choice = input("\nWould you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
@@ -90,10 +91,10 @@ def main():
                     #print("Dealer is showing " + dealer_shown_card)  # make into dealer.function()
                 elif choice.lower() == "s":
                     stand()
-                    print(dealer_hand)
-                    print("The dealer has a total of " + str(dealer_hand[0]))      # show dealers hand  ## changes every hand
+                    #print(dealer_hand)
+                    #print("The dealer has a total of " + str(dealer_hand[0]))      # show dealers hand  ## changes every hand
                     # print(dealer_hand[0])  # show dealers hand value  #test
-                    print("player " + str(i + 1))
+                    #print("player " + str(i + 1))
                     # print(bet_amount)                                 #test
                     """
                     bet_made = bet_amount[i]
@@ -114,12 +115,13 @@ def main():
                     print("Invalid Selection. Please try again.")
             #player.print_hand(player_hand)
            # print()
-            print(dealer_hand)    # test
-            value = dealer_hand[0]
-            value = dealer.dealer_plays_hand(value)
-            dealer_hand[0] = value
-            print(dealer_hand)
-            game_deck = deck.new_deck()  # doesnt work
+        print(dealer_hand)    # test
+        value = dealer_hand[0]
+        hand =0
+        value = dealer.dealer_plays_hand(value, hand)
+        dealer_hand[0] = value
+        print("Dealer has a total of " + str(value))
+        game_deck = deck.new_deck()  # doesnt work
 
         play_again = input("would you like to play again? (y/n) ")
 
