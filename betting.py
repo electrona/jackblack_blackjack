@@ -23,9 +23,7 @@ def player_float(i):
     return player_float_amount
 
 
-
-def betting_player(player_float_amount, j):
-
+def betting(player_chip_stacks, i):
 
     print("")
     print('╔══════════════════════════════════════════════════════╗')
@@ -33,20 +31,21 @@ def betting_player(player_float_amount, j):
     print('╚══════════════════════════════════════════════════════╝')
     print("")
 
-
     valid = True
     while valid:
-        bet_amount = int(input("Enter Player " + str(j + 1) + "'s bet amount: "))
-        float_remain = player_float_amount - bet_amount
-        if bet_amount in range(5, 1000) and bet_amount <= player_float_amount and player_float_amount > 0:
+        bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
+        chips_remain = player_chip_stacks[i] - bet_amount
+        if bet_amount in range(5, 1000) and bet_amount <= player_chip_stacks[i] and player_chip_stacks[i] > 0:
             print("")
             print("Your bet amount is: ", bet_amount)
-            print("You have " + str(float_remain) + " chips left")
+            print("You have " + str(chips_remain) + " chips left")
+            player_chip_stacks[i] = chips_remain
             return bet_amount  # float_remain
         else:
             print("Please enter a valid bet")
             print()
-            valid = True
+        valid = True
+
 
 ###########################
 
