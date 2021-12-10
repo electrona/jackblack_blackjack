@@ -85,8 +85,6 @@ def hit(game_deck, dealer_hand):
     dealer_hand.append(card_given)
 
 
-FILENAME = "dealersNet.csv"
-
 # def write_dealersNet(money):  # this might have to be in the player module, assigning win/loss to csv
 #     with open(FILENAME, "w", newline="") as file:
 #         writer = csv.writer(file)

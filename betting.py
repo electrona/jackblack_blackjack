@@ -37,14 +37,18 @@ def betting(player_chip_stacks, i):
 
     valid = True
     while valid:
-        bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
-        chips_remain = player_chip_stacks[i] - bet_amount
-        if bet_amount in range(5, 1001) and bet_amount <= player_chip_stacks[i] and player_chip_stacks[i] > 0:
-            print("")
-            print("Your bet amount is: ", bet_amount)
-            print("You have " + str(chips_remain) + " chips left")
-            player_chip_stacks[i] = chips_remain
-            return bet_amount  # float_remain
+        
+        try:
+            bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
+            chips_remain = player_chip_stacks[i] - bet_amount
+            if bet_amount in range(5, 1001) and bet_amount <= player_chip_stacks[i] and player_chip_stacks[i] > 0:
+                print("")
+                print("Your bet amount is: ", bet_amount)
+                print("You have " + str(chips_remain) + " chips left")
+                player_chip_stacks[i] = chips_remain
+                return bet_amount  # float_remain
+        except ValueError:
+            print("Invalid entry")
         else:
             print("Please enter a valid bet")
             print()
