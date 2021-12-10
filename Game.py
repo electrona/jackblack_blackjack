@@ -7,12 +7,12 @@ houseNet = "houseNet.csv"
 
 def setting_the_table():
     player_chip_stacks = []
-    game_deck = deck.new_deck()
+
     number_of_players = how_many_players()
-    print(number_of_players)      #test
+    # print(number_of_players)      #test
     creating_chip_float(number_of_players, player_chip_stacks)
-    print(player_chip_stacks)     # test
-    blackjack(player_chip_stacks, number_of_players, game_deck)
+    # print(player_chip_stacks)     # test
+    blackjack(player_chip_stacks, number_of_players)
 
 def read_houseNet():
      money = []
@@ -28,10 +28,11 @@ def write_houseNet(money):
          writer.writerows(money)
 
 
-def blackjack(player_chip_stacks, number_of_players, game_deck,):    #still need to reshuffle deck every hand
+def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffle deck every hand
     money = read_houseNet()
     play_again = "y"
-    while play_again.lower() == "y":        
+    while play_again.lower() == "y":
+        game_deck = deck.new_deck()
         bets_made = []
         player_hand = [0]
         table_hands = []
@@ -40,8 +41,8 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):    #still need
         for i in range(0, number_of_players):
             bets = bet.betting(player_chip_stacks, i)      # first round of betting()
             bets_made.append(bets)
-        print(player_chip_stacks)    
-        print(bets_made)             
+        # print(player_chip_stacks)
+        # print(bets_made)
 
         for i in range(0, number_of_players):              # creates players hand
             print("===============================")       #
@@ -63,7 +64,7 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):    #still need
                     print("You Bust!")
                     break
                 elif hand_value == 21 and len(hand) == 3:
-                    print("Blackjack!")                    
+                    print("Blackjack!")
                     break
                 elif hand_value == 21:
                     stand()
@@ -73,20 +74,21 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):    #still need
                 if choice.lower() == "h":
                     player.hit(game_deck, hand)
                     print("you hit")
-                    print(hand)
+                    player_hand = hand
+                    player.print_hand(player_hand)
                     print()
                     table_hands[i] = hand
-                    hand = [0]
+                    player_hand = [0]
                 elif choice.lower() == "s":
                     stand()
                     player_hand = [0]
                     break
 
         dealer.dealer_plays_hand(dealer_hand)
-        print(table_hands)
+        #print(table_hands)
         print()
         print("dealers hand is: ")
-        print(dealer_hand)
+        #print(dealer_hand)
         print()
         for h in range(0, number_of_players):
             player_hand = table_hands[h]
@@ -143,3 +145,4 @@ def how_many_players():
             break
         else:
             print("The maximum number of players is 5. Please try again.")
+            
