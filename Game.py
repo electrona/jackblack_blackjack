@@ -13,9 +13,9 @@ def setting_the_table():
     blackjack(player_chip_stacks, number_of_players, game_deck)
 
 
-def blackjack(player_chip_stacks, number_of_players, game_deck):
+def blackjack(player_chip_stacks, number_of_players, game_deck,):
     play_again = "y"
-    while play_again.lower() == "y":
+    while play_again.lower() == "y":        
         bets_made = []
         player_hand = [0]
         table_hands = []
@@ -32,15 +32,16 @@ def blackjack(player_chip_stacks, number_of_players, game_deck):
             print("Player " + str(i + 1) + "'s Turn")      #
             print()                                        #
             create_player_hand(game_deck, player_hand)     # potentially its own function
-            print(player_hand)
-            player.card_value_calculation(player_hand)
+            #print(player_hand)
+            #player.card_value_calculation(player_hand)
             #print(player_hand)                                                #
             player.print_hand(player_hand)
             table_hands.append(player_hand)                #
-            print(table_hands[i][0])
+            #print(table_hands[i][0])
             player_hand = [0]
             if dealer_hand[0] == 21 and len(dealer_hand) == 3:
                 print("Dealer has blackjack")
+                break
             # player_hand = table_hands[i]
             # print(table_hands[i])                        #
 
@@ -52,8 +53,12 @@ def blackjack(player_chip_stacks, number_of_players, game_deck):
                 if hand_value > 21:
                     print("You Bust!")
                     break
+                elif hand_value == 21 and len(hand) == 3:
+                    print("Blackjack!")
+                    break
                 elif hand_value == 21:
                     stand()
+                    break
                 print("Dealer is showing [??] " + dealer_shown_card)
                 choice = input("\nWould you like to Hit or Stand (h/s) ")
                 if choice.lower() == "h":
@@ -85,13 +90,15 @@ def blackjack(player_chip_stacks, number_of_players, game_deck):
                 table_hands[h][0] = 0
             if table_hands[h][0] > dealer_hand[0]:
                 print("Player " + str(h + 1) + " beat the dealer's value of " + str(dealer_hand[0]))
-                print("Player wins (x number) of chips!")
+                print("Player wins " + str(2 * bets_made[h]) + " chips!")
                 # function adding chips to player h chip_stacks
             elif table_hands[h][0] < dealer_hand[0]:
                 print("The dealer's value of " + str(dealer_hand[0]) + " beat Player " + str(h + 1))
+                house_take = bets_made[h]
+                print("House takes " + str(house_take))
             elif table_hands[h][0] == dealer_hand[0]:
                 print("Player " + str(h + 1) + " Pushes!")
-                print("Player wins his bet of (bet_amount) back!")
+                print("Player bet returned")
                 # player h earns their bet back
             print()
 
