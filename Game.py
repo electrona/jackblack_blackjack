@@ -28,7 +28,7 @@ def write_houseNet(money):
          writer.writerows(money)
 
 
-def blackjack(player_chip_stacks, number_of_players, game_deck,):
+def blackjack(player_chip_stacks, number_of_players, game_deck,):    #still need to reshuffle deck every hand
     money = read_houseNet()
     play_again = "y"
     while play_again.lower() == "y":        
@@ -51,9 +51,9 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
             player.print_hand(player_hand)
             table_hands.append(player_hand)            
             player_hand = [0]
-            if dealer_hand[0] == 21 and len(dealer_hand) == 3:
-                print("Dealer has blackjack")
-                break                                  #
+            if dealer_hand[0] == 21 and len(dealer_hand) == 3:  #player hands need to be compared to dealer BJ
+                print("Dealer has blackjack")                   #somehow need all players to have hands before dealer
+                break                                           # as of now, dealer hand is dealt at player one
 
             while True:
                 hand = table_hands[i]
@@ -63,7 +63,7 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
                     print("You Bust!")
                     break
                 elif hand_value == 21 and len(hand) == 3:
-                    print("Blackjack!")
+                    print("Blackjack!")                    
                     break
                 elif hand_value == 21:
                     stand()
@@ -88,7 +88,7 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
         print("dealers hand is: ")
         print(dealer_hand)
         print()
-        for h in range(0, number_of_players):              # add validation to be <= 21
+        for h in range(0, number_of_players):
             player_hand = table_hands[h]
             player.print_hand(player_hand)
             print("Player " + str(h + 1) + "'s value of " + str(player_hand[0]))
@@ -117,10 +117,9 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
             elif table_hands[h][0] == dealer_hand[0]:
                 print("Player " + str(h + 1) + " Pushes!")
                 print("Player bet returned")
-                player_chip_stacks[h] += bets_made[h]                #
-            print()
-        print()
-        play_again = input("Would you like to play again? (y/n) ")
+                player_chip_stacks[h] += bets_made[h]                 #need an option to top up here for stack <5
+            print()                                                   #or at bet screen As of now just gets stuck in                                                            
+        play_again = input("Would you like to play again? (y/n) ")    #loop, asking for bet when stack is < 5.
     print("\nThank you for visiting Jack Black's Blackjack casino! Bye!")
 
 def stand():
