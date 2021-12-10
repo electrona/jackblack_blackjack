@@ -2,6 +2,8 @@ import betting as bet
 import casinoplayer as player
 import casinodeck as deck
 import dealer as dealer
+import csv
+houseNet = "houseNet.csv"
 
 def setting_the_table():
     player_chip_stacks = []
@@ -12,8 +14,22 @@ def setting_the_table():
     print(player_chip_stacks)    # test
     blackjack(player_chip_stacks, number_of_players, game_deck)
 
+def read_houseNet():
+     money = []
+     with open(houseNet, newline="") as file:
+         reader = csv.reader(file)
+         for row in reader:
+            money.append(row)
+     return money
+
+def write_houseNet(money):
+    with open(houseNet, "w", newline="") as file:
+         writer = csv.writer(file)
+         writer.writerows(money)
+
 
 def blackjack(player_chip_stacks, number_of_players, game_deck,):
+    money = read_houseNet()
     play_again = "y"
     while play_again.lower() == "y":        
         bets_made = []
@@ -89,16 +105,32 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
             if table_hands[h][0] > 21:
                 table_hands[h][0] = 0
             if table_hands[h][0] > dealer_hand[0]:
+                win = (-bets_made[h])
                 print("Player " + str(h + 1) + " beat the dealer's value of " + str(dealer_hand[0]))
                 print("Player wins " + str(2 * bets_made[h]) + " chips!")
+                loss = []
+                loss.append(win)
+                money.append(loss)
+                write_houseNet(money)
+                player_chip_stacks[h] += (2*bets_made[h])
+
+
                 # function adding chips to player h chip_stacks
             elif table_hands[h][0] < dealer_hand[0]:
                 print("The dealer's value of " + str(dealer_hand[0]) + " beat Player " + str(h + 1))
                 house_take = bets_made[h]
                 print("House takes " + str(house_take))
+                take = []
+                take.append(house_take)
+                money.append(take)
+                write_houseNet(money)
+
+
+
             elif table_hands[h][0] == dealer_hand[0]:
                 print("Player " + str(h + 1) + " Pushes!")
                 print("Player bet returned")
+                player_chip_stacks[h] += bets_made[h]
                 # player h earns their bet back
             print()
 
