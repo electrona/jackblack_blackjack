@@ -41,17 +41,33 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
         for i in range(0, number_of_players):
             bets = bet.betting(player_chip_stacks, i)      # first round of betting()
             bets_made.append(bets)
+<<<<<<< Updated upstream
         # print(player_chip_stacks)
         # print(bets_made)
+=======
+        #print(player_chip_stacks)
+        print()
+
+        for i in range(0, number_of_players):
+            create_player_hand(game_deck, player_hand)  # potentially its own function
+            print("Player " + str(i + 1))
+            player.print_hand(player_hand)
+            print()
+            player.card_value_calculation(player_hand)
+            table_hands.append(player_hand)
+            player_hand = [0]
+        #print(table_hands)
+>>>>>>> Stashed changes
 
         for i in range(0, number_of_players):              # creates players hand
             print("===============================")       #
             print("Player " + str(i + 1) + "'s Turn")      #
             print()                                        #
-            create_player_hand(game_deck, player_hand)     # potentially its own function              
+            player_hand = table_hands[i]
             player.print_hand(player_hand)
-            table_hands.append(player_hand)            
-            player_hand = [0]
+            hand_value = player_hand[0]
+            print("Player " + str(i + 1) + "'s hand value is: " + str(hand_value))
+            player_hand = table_hands[i]
             if dealer_hand[0] == 21 and len(dealer_hand) == 3:  #player hands need to be compared to dealer BJ
                 print("Dealer has blackjack")                   #somehow need all players to have hands before dealer
                 break                                           # as of now, dealer hand is dealt at player one
@@ -76,6 +92,10 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
                     print("you hit")
                     player_hand = hand
                     player.print_hand(player_hand)
+<<<<<<< Updated upstream
+=======
+                    print("Your hand value is: " + str(player_hand[0]))
+>>>>>>> Stashed changes
                     print()
                     table_hands[i] = hand
                     player_hand = [0]

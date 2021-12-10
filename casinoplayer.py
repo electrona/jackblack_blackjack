@@ -37,6 +37,6 @@ def card_value_calculation(player_hand):
     if hand_value > 21 and ace_counter > 0:           # 0 may be replaced with ace_in_hand
         hand_value = hand_value - (ace_counter * 10)
         # ace_in_hand = ace_counter                       # ace allows you to keep hitting, never busts
-    print(f"Your hand total is: {hand_value}\n")
+    #print(f"Your hand total is: {hand_value}\n")
     player_hand[0] = hand_value
     return player_hand, hand_value
