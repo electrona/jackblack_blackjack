@@ -1,8 +1,7 @@
-def displaymenu():
-    
+def displaymenu():    
     print('                 WELCOME TO:                                ')
     print('    ╔══════════════════════════════════════════════════════╗')
-    print('    ║     ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠     ║')
+    print('    ║     ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game ♣ ♥ ♦ ♠    ║')
     print('    ╚══════════════════════════════════════════════════════╝')
     print('')
     print(" COMMAND MENU")
@@ -11,24 +10,18 @@ def displaymenu():
     print("Rules - Show Rules")
     print("Exit - Exit program")
 
-
 def player_float(i):
-
     print('     ╔══════════════════════════════════════════════════════╗')
     print('     ║   Please enter the amount of Float                   ║')
     print('     ╚══════════════════════════════════════════════════════╝')
-
     player_float_amount = int(input("Enter Player " + str(i + 1) + "'s float amount: "))
     while player_float_amount < 5:
         print("Enter amount higher than 5!")
         player_float_amount = int(input("Enter Player " + str(i + 1) + "'s float amount: "))
-
     print("")
     return player_float_amount
 
-
 def betting(player_chip_stacks, i):
-
     print("")
     print('╔══════════════════════════════════════════════════════╗')
     print('║   Minimum bet amount is $5 to a maximum of $1000     ║')    # add chip balance within the block
@@ -36,8 +29,7 @@ def betting(player_chip_stacks, i):
     print("")
 
     valid = True
-    while valid:
-        
+    while valid:        
         try:
             bet_amount = int(input("Enter Player " + str(i + 1) + "'s bet amount: "))
             chips_remain = player_chip_stacks[i] - bet_amount
@@ -46,7 +38,7 @@ def betting(player_chip_stacks, i):
                 print("Your bet amount is: ", bet_amount)
                 print("You have " + str(chips_remain) + " chips left")
                 player_chip_stacks[i] = chips_remain
-                return bet_amount  # float_remain
+                return bet_amount
         except ValueError:
             print("Invalid entry")
         else:
@@ -54,33 +46,10 @@ def betting(player_chip_stacks, i):
             print()
         valid = True
 
-
-###########################
-
-def hand_comparison(dealer_hand_value, player_hand_value, bet_made, chip_stacks):
-    if dealer_hand_value == player_hand_value:
-        print("Push!")
-        chip_stacks += bet_made  # player retains original float
-
-    if dealer_hand_value > player_hand_value:
-        print("Dealer wins :(")
-        #money += bet_made  # this adds to dealersNet csv
-
-    if dealer_hand_value < player_hand_value:
-        chip_stacks += (2 * bet_made)  # adds what player bet and their winnings to chip_stacks
-        print("Player wins " + str(chip_stacks) + "!")
-        return chip_stacks
-        #money -= (2 * bet_made)
-
-################################
-
-
 def rules_display():
-
-
     print('')
     print('    ╔══════════════════════════════════════════════════════╗')
-    print('    ║  ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game Rules ♣ ♥ ♦ ♠  ║')
+    print('    ║  ♠ ♦ ♥ ♣ JACK BLACK - Black Jack game Rules ♣ ♥ ♦ ♠ ║')
     print('    ╚══════════════════════════════════════════════════════╝')
     print('')
     print('╔══════════════════════════════════════════════════════════════╗')
@@ -104,36 +73,4 @@ def rules_display():
     print('║8. please play in moderation, VLT games and gambling are      ║')
     print('║   addictive.                                                 ║')
     print('║                                                              ║')
-    print('╚══════════════════════════════════════════════════════════════╝')
-
-
-def main():
-    """
-    displaymenu()
-    
-
-
-    while True:
-        command = input("\nCommand: ")
-        if command.lower() == "play":
-            bettinginput()
-        elif command.lower() == "rules":
-            rulesdisplay()
-        elif command.lower() == "exit":
-            break
-    print("Bye!")
-    
-   
-   # rulesdisplay()
-   """
-
-
-
-
-if __name__=="__main__":
-    main()
-
-
-
-
-
+    print('╚══════════════════════════════════════════════════════════════╝\n')

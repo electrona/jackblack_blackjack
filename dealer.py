@@ -2,12 +2,6 @@ import csv
 import casinodeck as casino
 import casinodeck
 
-###########
-# add csv function
-# add function to add chips for win/push for player
-# add function to add chips to dealer for player loss
-
-
 def dealers_hand(game_deck):
     hand = [0] #hand = [hand_value, chip_stack]
     for i in range(2):
@@ -33,11 +27,9 @@ def dealers_hand(game_deck):
             card_value = card_number
         hand_value = hand_value + int(card_value)
     if hand_value > 21 and ace_counter > 0:
-        hand_value = hand_value - (ace_counter * 10)
-    # print(f"The dealer has a total of  {hand_value}.")
+        hand_value = hand_value - (ace_counter * 10)    
     hand[0] = hand_value
     return hand
-
 
 def value_dealers_hand(dealer_hand):
     hand_total = 0
@@ -57,10 +49,8 @@ def value_dealers_hand(dealer_hand):
             card_value = 11
         else:
             card_value = card_number
-        hand_total = hand_total + int(card_value)
-    #print(f"The dealer has a total of  {hand_total}.")
+        hand_total = hand_total + int(card_value)    
     dealer_hand[0] = hand_total
-
 
 def dealer_plays_hand(dealer_hand):
     game_deck = casinodeck.new_deck()
@@ -79,26 +69,6 @@ def dealer_plays_hand(dealer_hand):
     dealer_hand[0] = value
     return value
 
-
 def hit(game_deck, dealer_hand):
     card_given = game_deck.pop()
     dealer_hand.append(card_given)
-
-
-# def write_dealersNet(money):  # this might have to be in the player module, assigning win/loss to csv
-#     with open(FILENAME, "w", newline="") as file:
-#         writer = csv.writer(file)
-#         writer.writerows(money)
-#
-# def read_dealerNET():
-#     money = []
-#     with open(FILENAME, newline="") as file:
-#         reader = csv.reader(file)
-#         for row in reader:
-#             money.append(row)
-#     return money
-
-
-def displayWinLoss():
-    pass #may not need
-

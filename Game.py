@@ -9,9 +9,9 @@ def setting_the_table():
     player_chip_stacks = []
     game_deck = deck.new_deck()
     number_of_players = how_many_players()
-    print(number_of_players)     # test
+    print(number_of_players)      #test
     creating_chip_float(number_of_players, player_chip_stacks)
-    print(player_chip_stacks)    # test
+    print(player_chip_stacks)     # test
     blackjack(player_chip_stacks, number_of_players, game_deck)
 
 def read_houseNet():
@@ -40,29 +40,22 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
         for i in range(0, number_of_players):
             bets = bet.betting(player_chip_stacks, i)      # first round of betting()
             bets_made.append(bets)
-        print(player_chip_stacks)     # test
-        print(bets_made)              # test
+        print(player_chip_stacks)    
+        print(bets_made)             
 
         for i in range(0, number_of_players):              # creates players hand
             print("===============================")       #
             print("Player " + str(i + 1) + "'s Turn")      #
             print()                                        #
-            create_player_hand(game_deck, player_hand)     # potentially its own function
-            #print(player_hand)
-            #player.card_value_calculation(player_hand)
-            #print(player_hand)                                                #
+            create_player_hand(game_deck, player_hand)     # potentially its own function              
             player.print_hand(player_hand)
-            table_hands.append(player_hand)                #
-            #print(table_hands[i][0])
+            table_hands.append(player_hand)            
             player_hand = [0]
             if dealer_hand[0] == 21 and len(dealer_hand) == 3:
                 print("Dealer has blackjack")
-                break
-            # player_hand = table_hands[i]
-            # print(table_hands[i])                        #
+                break                                  #
 
             while True:
-                # player.card_value_calculation(player_hand)
                 hand = table_hands[i]
                 player.card_value_calculation(hand)
                 hand_value = hand[0]
@@ -112,10 +105,7 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
                 loss.append(win)
                 money.append(loss)
                 write_houseNet(money)
-                player_chip_stacks[h] += (2*bets_made[h])
-
-
-                # function adding chips to player h chip_stacks
+                player_chip_stacks[h] += (2*bets_made[h])            
             elif table_hands[h][0] < dealer_hand[0]:
                 print("The dealer's value of " + str(dealer_hand[0]) + " beat Player " + str(h + 1))
                 house_take = bets_made[h]
@@ -124,19 +114,14 @@ def blackjack(player_chip_stacks, number_of_players, game_deck,):
                 take.append(house_take)
                 money.append(take)
                 write_houseNet(money)
-
-
-
             elif table_hands[h][0] == dealer_hand[0]:
                 print("Player " + str(h + 1) + " Pushes!")
                 print("Player bet returned")
-                player_chip_stacks[h] += bets_made[h]
-                # player h earns their bet back
+                player_chip_stacks[h] += bets_made[h]                #
             print()
-
         print()
         play_again = input("Would you like to play again? (y/n) ")
-
+    print("\nThank you for visiting Jack Black's Blackjack casino! Bye!")
 
 def stand():
     print()
@@ -144,8 +129,7 @@ def stand():
 
 def create_player_hand(game_deck, player_hand):
     player.intialize_hand(game_deck, player_hand)
-    player.intialize_hand(game_deck, player_hand)
-    # player.hit(game_deck, player_hand)
+    player.intialize_hand(game_deck, player_hand)    
 
 def creating_chip_float(number_of_players, player_chip_stacks):
     for i in range(0, number_of_players):
@@ -154,7 +138,7 @@ def creating_chip_float(number_of_players, player_chip_stacks):
 
 def how_many_players():
     while True:
-        number_of_players = int(input("How many Players (1-5): "))  # validation between 1 & 5
+        number_of_players = int(input("\nHow many Players (1-5): "))  # validation between 1 & 5
         if number_of_players in range(1, 6):
             return number_of_players
             break
