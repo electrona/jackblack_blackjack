@@ -3,7 +3,7 @@ import casinodeck as casino
 import casinodeck
 
 def dealers_hand(game_deck):
-    hand = [0] #hand = [hand_value, chip_stack]
+    hand = [0]
     for i in range(2):
         cards = game_deck.pop()
         hand.append(cards)

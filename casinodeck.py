@@ -15,7 +15,6 @@ MASTER_DECK = ["AS", "AC", "AH", "AD",
                "QS", "QC", "QH", "QD",
                "KS", "KC", "KH", "KD", ]
 
-# copy master deck so cards can be removed and deck reset
 def new_deck():
     deck = copy.deepcopy(MASTER_DECK)
     random.shuffle(deck)

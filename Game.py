@@ -7,11 +7,8 @@ houseNet = "houseNet.csv"
 
 def setting_the_table():
     player_chip_stacks = []
-
     number_of_players = how_many_players()
-    # print(number_of_players)      #test
     creating_chip_float(number_of_players, player_chip_stacks)
-    # print(player_chip_stacks)     # test
     blackjack(player_chip_stacks, number_of_players)
 
 def read_houseNet():
@@ -27,8 +24,7 @@ def write_houseNet(money):
          writer = csv.writer(file)
          writer.writerows(money)
 
-
-def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffle deck every hand
+def blackjack(player_chip_stacks, number_of_players):
     money = read_houseNet()
     play_again = "y"
     while play_again.lower() == "y":
@@ -39,38 +35,31 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
         dealer_hand = dealer.dealers_hand(game_deck)
         dealer_shown_card = dealer_hand[1]
         for i in range(0, number_of_players):
-            bets = bet.betting(player_chip_stacks, i)      # first round of betting()
+            bets = bet.betting(player_chip_stacks, i)
             bets_made.append(bets)
-<<<<<<< Updated upstream
-        # print(player_chip_stacks)
-        # print(bets_made)
-=======
-        #print(player_chip_stacks)
         print()
 
         for i in range(0, number_of_players):
-            create_player_hand(game_deck, player_hand)  # potentially its own function
+            create_player_hand(game_deck, player_hand)
             print("Player " + str(i + 1))
             player.print_hand(player_hand)
             print()
             player.card_value_calculation(player_hand)
             table_hands.append(player_hand)
             player_hand = [0]
-        #print(table_hands)
->>>>>>> Stashed changes
 
-        for i in range(0, number_of_players):              # creates players hand
-            print("===============================")       #
-            print("Player " + str(i + 1) + "'s Turn")      #
-            print()                                        #
+        for i in range(0, number_of_players):
+            print("===============================")
+            print("Player " + str(i + 1) + "'s Turn")
+            print()
             player_hand = table_hands[i]
             player.print_hand(player_hand)
             hand_value = player_hand[0]
             print("Player " + str(i + 1) + "'s hand value is: " + str(hand_value))
             player_hand = table_hands[i]
-            if dealer_hand[0] == 21 and len(dealer_hand) == 3:  #player hands need to be compared to dealer BJ
-                print("Dealer has blackjack")                   #somehow need all players to have hands before dealer
-                break                                           # as of now, dealer hand is dealt at player one
+            if dealer_hand[0] == 21 and len(dealer_hand) == 3:
+                print("Dealer has blackjack")
+                break
 
             while True:
                 hand = table_hands[i]
@@ -92,10 +81,8 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
                     print("you hit")
                     player_hand = hand
                     player.print_hand(player_hand)
-<<<<<<< Updated upstream
-=======
+                    player.card_value_calculation(hand)
                     print("Your hand value is: " + str(player_hand[0]))
->>>>>>> Stashed changes
                     print()
                     table_hands[i] = hand
                     player_hand = [0]
@@ -105,10 +92,9 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
                     break
 
         dealer.dealer_plays_hand(dealer_hand)
-        #print(table_hands)
         print()
         print("dealers hand is: ")
-        #print(dealer_hand)
+        print(dealer_hand)
         print()
         for h in range(0, number_of_players):
             player_hand = table_hands[h]
@@ -119,12 +105,13 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
                 print("the dealer busts!!")
             if table_hands[h][0] > 21:
                 table_hands[h][0] = 0
+            if table_hands[h][0] == 21 and len(table_hands[h]) == 3:
+                print("Player's Blackjack wins!")
             if table_hands[h][0] > dealer_hand[0]:
-                win = (-bets_made[h])
                 print("Player " + str(h + 1) + " beat the dealer's value of " + str(dealer_hand[0]))
                 print("Player wins " + str(2 * bets_made[h]) + " chips!")
                 loss = []
-                loss.append(win)
+                loss.append(bets_made[h])
                 money.append(loss)
                 write_houseNet(money)
                 player_chip_stacks[h] += (2*bets_made[h])            
@@ -139,9 +126,11 @@ def blackjack(player_chip_stacks, number_of_players):    #still need to reshuffl
             elif table_hands[h][0] == dealer_hand[0]:
                 print("Player " + str(h + 1) + " Pushes!")
                 print("Player bet returned")
-                player_chip_stacks[h] += bets_made[h]                 #need an option to top up here for stack <5
-            print()                                                   #or at bet screen As of now just gets stuck in                                                            
-        play_again = input("Would you like to play again? (y/n) ")    #loop, asking for bet when stack is < 5.
+                player_chip_stacks[h] += bets_made[h]
+            print()
+            if player_chip_stacks[h] < 5:
+                player_chip_stacks[h] = int(input("You lost your stack! Enter Player " + str(h + 1) + "'s rebuy amount: "))
+        play_again = input("Would you like to play again? (y/n) ")
     print("\nThank you for visiting Jack Black's Blackjack casino! Bye!")
 
 def stand():
@@ -165,4 +154,3 @@ def how_many_players():
             break
         else:
             print("The maximum number of players is 5. Please try again.")
-            
