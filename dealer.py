@@ -33,7 +33,7 @@ def dealers_hand(game_deck):
 
 def value_dealers_hand(dealer_hand):
     hand_total = 0
-    card_value = 0
+    ace_counter = 0
     for i in range(1, len(dealer_hand)):
         card_number = dealer_hand[i]
         card_number = card_number[0]
@@ -49,7 +49,9 @@ def value_dealers_hand(dealer_hand):
             card_value = 11
         else:
             card_value = card_number
-        hand_total = hand_total + int(card_value)    
+        hand_total = hand_total + int(card_value)
+    if hand_total > 21 and ace_counter > 0:
+        hand_total = hand_total - (ace_counter * 10)
     dealer_hand[0] = hand_total
 
 def dealer_plays_hand(dealer_hand):
